@@ -16,50 +16,26 @@
 
     <!-- deklarasi app vue -->
     <div id="app">
-        <section class="container mx-auto p-8" v-show="tugasBelumSelesai.length">
-            <h2 class="font-bold mb-2">In Progress</h2>
-            <ul>
-                <li v-for="tugas in tugasBelumSelesai" :key="tugas.id">
-                    <label>
-                        <input type="checkbox" v-model="tugas.selesai">
-                        {{ tugas.nama }}
-                    </label>
-                </li>
-            </ul>
-        </section>
-        <section class="container mx-auto p-8" v-show="tugasSelesai.length">
-            <h2 class="font-bold mb-2">Selesai</h2>
-            <ul>
-                <li v-for="tugas in tugasSelesai" :key="tugas.id">
-                    <label>
-                        <input type="checkbox" v-model="tugas.selesai">
-                        {{ tugas.nama }}
-                    </label>
-                </li>
-            </ul>
-        </section>
+        <app-button>Submit</app-button>
+        <app-button>Click Me</app-button>
     </div>
     <script>
         const app = Vue.createApp({
-            data() {
-                return {
-                    tugass: [
-                        { id: 1, nama: 'Tugas 1', selesai: false },
-                        { id: 2, nama: 'Tugas 2', selesai: false },
-                        { id: 3, nama: 'Tugas 3', selesai: false }
-                    ]
+            components: {
+                'app-button': {
+                    template: `
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed" :disabled="isLoading">
+                            <slot></slot>
+                        </button>
+                    `,
+
+                    data() {
+                        return {
+                            isLoading: true
+                        }
+                    }
                 }
             },
-
-            computed: {
-                tugasBelumSelesai() {
-                    return this.tugass.filter(tugas => !tugas.selesai);
-                },
-
-                tugasSelesai() {
-                    return this.tugass.filter(tugas => tugas.selesai);
-                }
-            }
         });
         app.mount('#app');
     </script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Vue</title>
+
+    <!-- install vue menggunakan cdn -->
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <!-- install tailwindcss pake cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+
+    <!-- deklarasi app vue -->
+    <div id="app">
+        <section class="container mx-auto p-8" v-show="tugasBelumSelesai.length">
+            <h2 class="font-bold mb-2">In Progress</h2>
+            <ul>
+                <li v-for="tugas in tugasBelumSelesai" :key="tugas.id">
+                    <label>
+                        <input type="checkbox" v-model="tugas.selesai">
+                        {{ tugas.nama }}
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section class="container mx-auto p-8" v-show="tugasSelesai.length">
+            <h2 class="font-bold mb-2">Selesai</h2>
+            <ul>
+                <li v-for="tugas in tugasSelesai" :key="tugas.id">
+                    <label>
+                        <input type="checkbox" v-model="tugas.selesai">
+                        {{ tugas.nama }}
+                    </label>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    tugass: [
+                        { id: 1, nama: 'Tugas 1', selesai: false },
+                        { id: 2, nama: 'Tugas 2', selesai: false },
+                        { id: 3, nama: 'Tugas 3', selesai: false }
+                    ]
+                }
+            },
+
+            computed: {
+                tugasBelumSelesai() {
+                    return this.tugass.filter(tugas => !tugas.selesai);
+                },
+
+                tugasSelesai() {
+                    return this.tugass.filter(tugas => tugas.selesai);
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
