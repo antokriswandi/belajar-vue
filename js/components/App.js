@@ -1,6 +1,7 @@
-import AppButton from './AppButton.js';
+import Wadahtugas from './Wadahtugas.js';
 export default {
-    components: {
-        'app-button': AppButton,
-    }
+    components: { Wadahtugas },
+    template: `
+        <wadahtugas></wadahtugas>
+    `,
 }
