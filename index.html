@@ -8,37 +8,56 @@
     <!-- install vue menggunakan cdn -->
     <script src="https://unpkg.com/vue@3"></script>
 
-    <style>
-        .text-red {
-            color: red;
-        }
-
-        .text-blue {
-            color: blue;
-        }
-    </style>
+    <!-- install tailwindcss pake cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     
 
     <!-- deklarasi app vue -->
     <div id="app">
-        <!-- v-bind bisa dipersingkat jadi ":", v-on bisa dipersingkat jadi "@" -->
-        <!-- v-bind:class => :class -->
-        <!-- v-on:click => @click -->
-        <button :class="active ? 'text-red' : 'text-blue'" @click="toggle">Klik Aku!</button>
+        <section class="container mx-auto p-8" v-show="tugasBelumSelesai.length">
+            <h2 class="font-bold mb-2">In Progress</h2>
+            <ul>
+                <li v-for="tugas in tugasBelumSelesai" :key="tugas.id">
+                    <label>
+                        <input type="checkbox" v-model="tugas.selesai">
+                        {{ tugas.nama }}
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section class="container mx-auto p-8" v-show="tugasSelesai.length">
+            <h2 class="font-bold mb-2">Selesai</h2>
+            <ul>
+                <li v-for="tugas in tugasSelesai" :key="tugas.id">
+                    <label>
+                        <input type="checkbox" v-model="tugas.selesai">
+                        {{ tugas.nama }}
+                    </label>
+                </li>
+            </ul>
+        </section>
     </div>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    active: true
+                    tugass: [
+                        { id: 1, nama: 'Tugas 1', selesai: false },
+                        { id: 2, nama: 'Tugas 2', selesai: false },
+                        { id: 3, nama: 'Tugas 3', selesai: false }
+                    ]
                 }
             },
 
-            methods: {
-                toggle() {
-                    this.active = !this.active;
+            computed: {
+                tugasBelumSelesai() {
+                    return this.tugass.filter(tugas => !tugas.selesai);
+                },
+
+                tugasSelesai() {
+                    return this.tugass.filter(tugas => tugas.selesai);
                 }
             }
         });
