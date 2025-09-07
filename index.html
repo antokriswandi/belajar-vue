@@ -7,30 +7,39 @@
 
     <!-- install vue menggunakan cdn -->
     <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+        .text-red {
+            color: red;
+        }
+
+        .text-blue {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     
 
     <!-- deklarasi app vue -->
     <div id="app">
-        <p>
-            <input type="text" v-model="message">
-        </p>
-        <h1>{{ message }} ({{ message.length }})</h1>
+        <!-- v-bind bisa dipersingkat jadi ":", v-on bisa dipersingkat jadi "@" -->
+        <!-- v-bind:class => :class -->
+        <!-- v-on:click => @click -->
+        <button :class="active ? 'text-red' : 'text-blue'" @click="toggle">Klik Aku!</button>
     </div>
-
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    message: 'Hello Anto!'
+                    active: true
                 }
             },
 
-            mounted(){
-                setTimeout(() => {
-                    this.message = 'Hello World!'
-                }, 2000);
+            methods: {
+                toggle() {
+                    this.active = !this.active;
+                }
             }
         });
         app.mount('#app');
