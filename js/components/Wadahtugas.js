@@ -1,16 +1,15 @@
 import ListTugas from './ListTugas.js';
+import TambahTugas from './TambahTugas.js';
 
 export default {
-    components: { ListTugas },
+    components: { ListTugas, TambahTugas },
     template: `
         <section class="space-y-4">
             <list-tugas :tugass="filters.belumSelesai" title="Tugas Belum Selesai"></list-tugas>
             <list-tugas :tugass="filters.selesai" title="Tugas Selesai"></list-tugas>
 
-            <form @submit.prevent="tambah">
-                <input type="text" v-model="tugasBaru" placeholder="Nama Tugas" class="border p-2 w-full" />
-                <button type="submit" class="bg-blue-500 text-white p-2 mt-2">Tambah Tugas</button>
-            </form> 
+            <tambah-tugas @tambah="tambah"></tambah-tugas>
+            
         </section>
     `,
 
@@ -21,8 +20,6 @@ export default {
                 { id: 2, nama: 'Belajar React', selesai: false },
                 { id: 3, nama: 'Belajar Angular', selesai: false },
             ],
-
-            tugasBaru: '',
         }
     },
 
@@ -36,13 +33,12 @@ export default {
     },
 
     methods: {
-        tambah() {
+        tambah(nama) {
             this.tugass.push({
                 id: this.tugass.length + 1,
-                nama: this.tugasBaru,
+                nama : nama,
                 selesai: false,
             });
-            this.tugasBaru = '';
         }
     }
 }
