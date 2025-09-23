@@ -16,9 +16,9 @@ export default {
     data() {
         return {
             tugass: [
-                { id: 1, nama: 'Belajar Vue', selesai: false },
-                { id: 2, nama: 'Belajar React', selesai: false },
-                { id: 3, nama: 'Belajar Angular', selesai: false },
+                { id: 1, nama: 'Belajar Vue', selesai: false, tag: 'frontend' },
+                { id: 2, nama: 'Belajar Laravel', selesai: false, tag: 'backend' },
+                { id: 3, nama: 'Belajar Go', selesai: false, tag: 'backend' },
             ],
         }
     },
