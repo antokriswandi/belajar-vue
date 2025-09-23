@@ -1,7 +1,8 @@
 import Tugas from './Tugas.js';
+import TugasTag from './TugasTag.js';
 
 export default {
-    components: { Tugas },
+    components: { Tugas, TugasTag },
     template:
     `
         <section v-show="tugass.length">
@@ -10,11 +11,12 @@ export default {
                 <span>({{ tugass.length }})</span>
             </h2>
 
-            <div class="flex gap-2 mb-4">
-                <button @click="tagSekarang = tag" v-for="tag in tags" class="border border-slate-400 rounded px-1 py-0.5 text-sm text-slate-400" :class="{'border-blue-500 text-blue-500': tagSekarang === tag}">
-                    {{ tag }}
-                </button>
-            </div>
+            <tugas-tag
+                :initial-tags="tugass.map(tugas => tugas.tag)"
+                :tag-sekarang="tagSekarang"
+                @change="tagSekarang = $event"
+            />
+
             <ul>
                 <tugas v-for="tugas in filteredTugass" :key="tugas.id" :tugas="tugas"></tugas>
             </ul>
@@ -29,7 +31,7 @@ export default {
 
     data() {
         return {
-            tagSekarang: null,
+            tagSekarang: 'all'
         }
     },
 
@@ -39,10 +41,6 @@ export default {
                 return this.tugass.filter(tugas => tugas.tag === this.tagSekarang);
             }
             return this.tugass;
-        },
-        tags() {
-            const tags = ['all', ...this.tugass.map(tugas => tugas.tag)];
-            return [...new Set(tags)];
         }
     }
 }
