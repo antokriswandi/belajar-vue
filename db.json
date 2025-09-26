@@ -1,0 +1,136 @@
+{
+    "tugass": [
+        {
+            "id": 1,
+            "nama": "Belajar Vue",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 2,
+            "nama": "Belajar React",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 3,
+            "nama": "Beli Sayur",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 4,
+            "nama": "Beli Baju",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 5,
+            "nama": "Membaca Buku",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 6,
+            "nama": "Menulis Artikel",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 7,
+            "nama": "Mengerjakan PR",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 8,
+            "nama": "Membeli Sepatu",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 9,
+            "nama": "Belajar Node.js",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 10,
+            "nama": "Belanja Mingguan",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 11,
+            "nama": "Belajar CSS",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 12,
+            "nama": "Beli Buah",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 13,
+            "nama": "Belajar HTML",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 14,
+            "nama": "Beli Laptop",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 15,
+            "nama": "Belajar JavaScript",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 16,
+            "nama": "Beli Kopi",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 17,
+            "nama": "Belajar Python",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 18,
+            "nama": "Beli Buku",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 19,
+            "nama": "Belajar Git",
+            "selesai": false,
+            "tag": "belajar"
+        },
+        {
+            "id": 20,
+            "nama": "Beli Makanan",
+            "selesai": false,
+            "tag": "belanja"
+        },
+        {
+            "id": 21,
+            "nama": "Belajar Vue",
+            "selesai": true,
+            "tag": "programming"
+        },
+        {
+            "id": 22,
+            "nama": "Tonton Film",
+            "selesai": true,
+            "tag": "hobi"
+        }
+    ]
+}

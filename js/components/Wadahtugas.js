@@ -1,5 +1,6 @@
 import ListTugas from './ListTugas.js';
 import TambahTugas from './TambahTugas.js';
+// import axios from 'axios';
 
 export default {
     components: { ListTugas, TambahTugas },
@@ -15,11 +16,7 @@ export default {
 
     data() {
         return {
-            tugass: [
-                { id: 1, nama: 'Belajar Vue', selesai: false, tag: 'frontend' },
-                { id: 2, nama: 'Belajar Laravel', selesai: false, tag: 'backend' },
-                { id: 3, nama: 'Belajar Go', selesai: false, tag: 'backend' },
-            ],
+            tugass: [],
         }
     },
 
@@ -30,6 +27,21 @@ export default {
                 selesai: this.tugass.filter(tugas => tugas.selesai),
             }
         }
+    },
+
+    created() {
+        fetch('http://localhost:3000/tugass')
+            .then(response => response.json())
+            .then(data => {
+                this.tugass = data;
+            });
+        // axios.get('http://localhost:3000/tugass')
+        //     .then(response => {
+        //         this.tugass = response.data;
+        //     })
+        //     .catch(error => {
+        //         console.error('Error fetching data:', error);
+        //     });
     },
 
     methods: {
