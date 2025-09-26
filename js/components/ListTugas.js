@@ -12,9 +12,8 @@ export default {
             </h2>
 
             <tugas-tag
+                v-model="tagSekarang"
                 :initial-tags="tugass.map(tugas => tugas.tag)"
-                :tag-sekarang="tagSekarang"
-                @change="tagSekarang = $event"
             />
 
             <ul>
