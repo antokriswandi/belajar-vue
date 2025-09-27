@@ -5,11 +5,15 @@ export default {
     components: { Tugas, TugasTag },
     template:
     `
-        <section v-show="tugass.length">
-            <h2 class="font-bold mb-2 text-lg">
-                {{ title }}
-                <span>({{ tugass.length }})</span>
-            </h2>
+        <section v-show="tugass.length" class="w-1/2">
+            <div class="flex justify-between align-start">
+                <h2 class="font-bold mb-2 text-lg">
+                    {{ title }}
+                    <span>({{ tugass.length }})</span>
+                </h2>
+
+                <button v-show="canToggle">&#x2716;</button>
+            </div>
 
             <tugas-tag
                 v-model="tagSekarang"
@@ -19,6 +23,8 @@ export default {
             <ul>
                 <tugas v-for="tugas in filteredTugass" :key="tugas.id" :tugas="tugas"></tugas>
             </ul>
+
+            <slot></slot>
         </section>
 
     `,
@@ -26,6 +32,7 @@ export default {
     props: {
         tugass: Array,
         title: String,
+        canToggle: { type: Boolean, default: false }
     },
 
     data() {

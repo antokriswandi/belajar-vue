@@ -5,12 +5,11 @@ import TambahTugas from './TambahTugas.js';
 export default {
     components: { ListTugas, TambahTugas },
     template: `
-        <section class="space-y-4">
-            <list-tugas :tugass="filters.belumSelesai" title="Tugas Belum Selesai"></list-tugas>
-            <list-tugas :tugass="filters.selesai" title="Tugas Selesai"></list-tugas>
-
-            <tambah-tugas @tambah="tambah"></tambah-tugas>
-            
+        <section class="flex gap-8">
+            <list-tugas :tugass="filters.belumSelesai" title="Tugas Belum Selesai">
+                <tambah-tugas @tambah="tambah"></tambah-tugas>
+            </list-tugas>
+            <list-tugas :tugass="filters.selesai" title="Tugas Selesai" can-toggle></list-tugas>
         </section>
     `,
 
