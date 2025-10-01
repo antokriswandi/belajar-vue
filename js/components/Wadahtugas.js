@@ -9,13 +9,14 @@ export default {
             <list-tugas :tugass="filters.belumSelesai" title="Tugas Belum Selesai">
                 <tambah-tugas @tambah="tambah"></tambah-tugas>
             </list-tugas>
-            <list-tugas :tugass="filters.selesai" title="Tugas Selesai" can-toggle></list-tugas>
+            <list-tugas v-show="showCompleted" :tugass="filters.selesai" title="Tugas Selesai" can-toggle @toggle="showCompleted = !showCompleted"></list-tugas>
         </section>
     `,
 
     data() {
         return {
             tugass: [],
+            showCompleted: true,
         }
     },
 

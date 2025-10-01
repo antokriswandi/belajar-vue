@@ -12,7 +12,7 @@ export default {
                     <span>({{ tugass.length }})</span>
                 </h2>
 
-                <button v-show="canToggle">&#x2716;</button>
+                <button v-show="canToggle" @click="$emit('toggle')">&#x2716;</button>
             </div>
 
             <tugas-tag
