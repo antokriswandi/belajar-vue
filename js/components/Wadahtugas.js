@@ -1,9 +1,10 @@
 import ListTugas from './ListTugas.js';
 import TambahTugas from './TambahTugas.js';
+import Card from './Card.js';
 // import axios from 'axios';
 
 export default {
-    components: { ListTugas, TambahTugas },
+    components: { ListTugas, TambahTugas, Card },
     template: `
         <section class="flex gap-8">
             <list-tugas :tugass="filters.belumSelesai" title="Tugas Belum Selesai">

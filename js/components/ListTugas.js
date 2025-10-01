@@ -1,11 +1,12 @@
 import Tugas from './Tugas.js';
 import TugasTag from './TugasTag.js';
+import Card from './Card.js';
 
 export default {
-    components: { Tugas, TugasTag },
+    components: { Tugas, TugasTag, Card },
     template:
     `
-        <section v-show="tugass.length" class="w-1/2">
+        <Card v-show="tugass.length" class="w-1/2">
             <div class="flex justify-between align-start">
                 <h2 class="font-bold mb-2 text-lg">
                     {{ title }}
@@ -25,7 +26,7 @@ export default {
             </ul>
 
             <slot></slot>
-        </section>
+        </Card>
 
     `,
 
